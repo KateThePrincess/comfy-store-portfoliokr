@@ -23,7 +23,7 @@ const PaginationContainer = () => {
     <div className='mt-16 flex justify-center px-8'>
       <div className='join'>
         <button
-          className='btn btn-xs sm:btn-md join-item btn-neutral'
+          className='btn btn-sm sm:btn-md join-item btn-neutral'
           onClick={() => {
             let prevPage = page - 1;
             if (prevPage < 1) prevPage = pageCount;
@@ -37,7 +37,7 @@ const PaginationContainer = () => {
             <button
               key={pageNumber}
               onClick={() => handlePageChange(pageNumber)}
-              className={`btn btn-xs sm:btn-md btn-neutral border-none join-item ${
+              className={`btn btn-sm sm:btn-md btn-neutral border-none join-item ${
                 pageNumber === page ? 'bg-secondary' : ''
               }`}
             >
@@ -46,7 +46,7 @@ const PaginationContainer = () => {
           );
         })}
         <button
-          className='btn btn-xs sm:btn-md join-item btn-neutral'
+          className='btn btn-sm sm:btn-md join-item btn-neutral'
           onClick={() => {
             let nextPage = page + 1;
             if (nextPage >= pageCount) nextPage = 1;

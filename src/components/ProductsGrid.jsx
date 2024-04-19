@@ -1,11 +1,16 @@
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { formatPrice } from '../utils';
 import { BsCart3 } from 'react-icons/bs';
 const ProductsGrid = ({ bg }) => {
   const { products } = useLoaderData();
 
-  const categoryUrl = '?search=s&category=';
-  const companyUrl = '?search=s&company=';
+  const navigate = useNavigate();
+  const handleClick = (categoryURL, category) => {
+    navigate(`/products?${categoryURL}${category}`);
+  };
+
+  const categoryURL = 'search=s&category=';
+  const companyURL = 'search=s&company=';
 
   return (
     <div className='pt-12 grid gap-4 md:grid-cols-3 sm:grid-cols-2'>
@@ -14,7 +19,6 @@ const ProductsGrid = ({ bg }) => {
         return (
           <Link
             key={product.id}
-            to={`/products/${product.id}`}
             className={`card w-full transition-all duration-300 ${bg}`}
           >
             <figure>
@@ -40,22 +44,20 @@ const ProductsGrid = ({ bg }) => {
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    location.href = `/products/${categoryUrl}${category}`;
+                    handleClick(categoryURL, category);
                   }}
-                  //to={`/products/${categoryUrl}${category}`}
                 >
-                  {(category && category) || null}
+                  {category && category}
                 </button>
                 <button
                   className='badge badge-outline badge-neutral hover:opacity-[65%]'
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    location.href = `/products/${companyUrl}${company}`;
+                    handleClick(companyURL, company);
                   }}
-                  //to={`/products/${companyUrl}${company}`}
                 >
-                  {(company && company) || null}
+                  {company && company}
                 </button>
               </div>
             </div>
