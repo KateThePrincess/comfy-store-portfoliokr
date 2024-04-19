@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .align-element {
+    @apply mx-auto max-w-6xl px-8;
+  }
+}
+
+.small-caps {
+  font-variant: all-small-caps;
+}
+
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+li::before {
+  z-index: -1;
+}
