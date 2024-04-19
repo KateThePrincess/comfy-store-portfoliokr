@@ -4,8 +4,8 @@ import { BsCart3 } from 'react-icons/bs';
 const ProductsGrid = ({ bg }) => {
   const { products } = useLoaderData();
 
-  const categoryUrl = '?search=&category=';
-  const companyUrl = '?search=&company=';
+  const categoryUrl = '?search=s&category=';
+  const companyUrl = '?search=s&company=';
 
   return (
     <div className='pt-12 grid gap-4 md:grid-cols-3 sm:grid-cols-2'>

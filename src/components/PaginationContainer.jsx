@@ -1,9 +1,4 @@
-import {
-  useLoaderData,
-  useLocation,
-  useNavigate,
-  useNavigation,
-} from 'react-router-dom';
+import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 const PaginationContainer = () => {
   const { meta } = useLoaderData();
