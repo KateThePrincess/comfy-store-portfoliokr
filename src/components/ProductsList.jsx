@@ -20,6 +20,7 @@ const ProductsList = ({ bg }) => {
           <Link
             key={product.id}
             className={`card w-full transition-all duration-300 ${bg}`}
+            to={`${product.id}`}
           >
             <figure>
               <img

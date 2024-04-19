@@ -1,7 +1,7 @@
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { formatPrice } from '../utils';
 import { BsCart3 } from 'react-icons/bs';
-const ProductsGrid = ({ bg }) => {
+const ProductsGrid = ({ bg, to }) => {
   const { products } = useLoaderData();
 
   const navigate = useNavigate();
@@ -20,6 +20,7 @@ const ProductsGrid = ({ bg }) => {
           <Link
             key={product.id}
             className={`card w-full transition-all duration-300 ${bg}`}
+            to={to ? `${to}${product.id}` : `${product.id}`}
           >
             <figure>
               <img
