@@ -2,9 +2,7 @@ import { useState } from 'react';
 import ProductsGrid from '../components/ProductsGrid';
 import ProductsList from './ProductsList';
 import { useLoaderData } from 'react-router-dom';
-import { BsFillGridFill, BsList } from 'react-icons/bs';
-import { IoGrid, IoList } from 'react-icons/io5';
-import { FaGrip, FaGripLines, FaHtml5 } from 'react-icons/fa6';
+import { FaGrip, FaGripLines } from 'react-icons/fa6';
 
 const ProductsContainer = () => {
   const { meta } = useLoaderData();
@@ -50,7 +48,7 @@ const ProductsContainer = () => {
           ) : layout === 'grid' ? (
             <ProductsGrid bg={'bg-base-200'} />
           ) : (
-            <ProductsList />
+            <ProductsList bg={'bg-base-200'} />
           )}
         </div>
       </section>
