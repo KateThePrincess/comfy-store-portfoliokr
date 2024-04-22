@@ -9,8 +9,8 @@ const ProductsList = ({ bg }) => {
     navigate(`/products?${categoryURL}${category}`);
   };
 
-  const categoryURL = 'search=s&category=';
-  const companyURL = 'search=s&company=';
+  const categoryURL = 'search=&category=';
+  const companyURL = 'search=&company=';
 
   return (
     <div className='pt-12 grid gap-4'>
