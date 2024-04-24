@@ -5,7 +5,7 @@ const defaultState = {
   cartItems: [],
   numItemsInCart: 0,
   cartTotal: 0,
-  shipping: 500,
+  shipping: 5000,
   tax: 0,
   orderTotal: 0,
 };
@@ -71,12 +71,12 @@ const cartSlice = createSlice({
       const freeShipping = state.cartItems.every(
         (item) => item.shipping === true
       );
-      if (freeShipping === true) {
+
+      if (freeShipping === true || state.cartTotal + state.tax >= 50000) {
         state.shipping = 0;
         state.orderTotal = state.cartTotal + state.tax;
-      }
-      if (freeShipping === false) {
-        state.shipping = 500;
+      } else {
+        state.shipping = 5000;
         state.orderTotal = state.cartTotal + state.shipping + state.tax;
       }
 
