@@ -1,6 +1,14 @@
 import { useSelector } from 'react-redux';
 import { CartItemsList, CartTotals, SectionTitle } from '../components';
 import { Link } from 'react-router-dom';
+import { customFetch } from '../utils';
+
+const url = '/products?search=&shipping=on';
+export const loader = async () => {
+  const response = await customFetch(url);
+  const products = response.data.data;
+  return { products };
+};
 const Cart = () => {
   //temp
   const user = null;
@@ -14,6 +22,7 @@ const Cart = () => {
       />
     );
   }
+
   return (
     <>
       <SectionTitle text='Shopping Cart' bg='bg-base-200 p-4 rounded-xl' />

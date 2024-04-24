@@ -3,9 +3,16 @@ import { editItem, removeItem, clearCart } from '../features/cart/cartSlice';
 import { formatPrice, generateAmountOptions } from '../utils';
 
 const CartItem = ({ cartItem }) => {
-  const { cartID, title, price, image, amount, company, productColor } =
-    cartItem;
-  console.log(cartItem);
+  const {
+    cartID,
+    title,
+    price,
+    image,
+    amount,
+    company,
+    productColor,
+    shipping,
+  } = cartItem;
   const dispatch = useDispatch();
 
   const removeItemFromTheCart = () => {
@@ -23,6 +30,7 @@ const CartItem = ({ cartItem }) => {
   const clearAllItems = () => {
     dispatch(clearCart());
   };
+
   return (
     <article
       key={cartID}
@@ -52,7 +60,7 @@ const CartItem = ({ cartItem }) => {
           />
         </p>
       </div>
-      <div className='sm:ml-24'>
+      <div className='sm:ml-12'>
         {/* AMOUNT */}
         <div className='form-control max-w-xs flex'>
           <label

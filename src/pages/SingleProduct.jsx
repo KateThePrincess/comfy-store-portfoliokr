@@ -7,11 +7,19 @@ export const loader = async ({ params }) => {
   const response = await customFetch(`/products/${params.id}`);
   return { product: response.data.data };
 };
-const categoryUrl = '?search=s&category=';
+const categoryUrl = '?search=&category=';
 const SingleProduct = () => {
   const { product } = useLoaderData();
-  const { image, title, price, description, colors, company, category } =
-    product.attributes;
+  const {
+    image,
+    title,
+    price,
+    description,
+    colors,
+    company,
+    category,
+    shipping,
+  } = product.attributes;
 
   const dollarsAmount = formatPrice(price);
   const [productColor, setProductColor] = useState(colors[0]);
@@ -29,6 +37,7 @@ const SingleProduct = () => {
     company,
     productColor,
     amount,
+    shipping,
   };
 
   const dispatch = useDispatch();
@@ -37,7 +46,6 @@ const SingleProduct = () => {
     dispatch(addItem({ product: cartProduct }));
   };
 
-  console.log(amount);
   return (
     <section>
       <div className='text-md breadcrumbs transition-all duration-300 ease '>

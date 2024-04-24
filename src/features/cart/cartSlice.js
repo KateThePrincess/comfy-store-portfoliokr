@@ -68,7 +68,18 @@ const cartSlice = createSlice({
     },
     calculateTotals: (state) => {
       state.tax = 0.23 * state.cartTotal;
-      state.orderTotal = state.cartTotal + state.shipping + state.tax;
+      const freeShipping = state.cartItems.every(
+        (item) => item.shipping === true
+      );
+      if (freeShipping === true) {
+        state.shipping = 0;
+        state.orderTotal = state.cartTotal + state.tax;
+      }
+      if (freeShipping === false) {
+        state.shipping = 500;
+        state.orderTotal = state.cartTotal + state.shipping + state.tax;
+      }
+
       localStorage.setItem('cart', JSON.stringify(state));
     },
   },
