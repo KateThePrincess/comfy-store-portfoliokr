@@ -20,3 +20,21 @@ body {
 li::before {
   z-index: -1;
 }
+
+@keyframes custom-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25%,
+  75% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+}
+
+.animate-custom-shake {
+  animation: custom-shake 300ms ease-in-out;
+}

@@ -27,7 +27,6 @@ const cartSlice = createSlice({
       } else {
         state.cartItems.push(product);
       }
-
       state.numItemsInCart += product.amount;
       state.cartTotal += product.price * product.amount;
       cartSlice.caseReducers.calculateTotals(state);
@@ -68,11 +67,11 @@ const cartSlice = createSlice({
     },
     calculateTotals: (state) => {
       state.tax = 0.23 * state.cartTotal;
-      const freeShipping = state.cartItems.every(
-        (item) => item.shipping === true
-      );
+      const freeShipping =
+        state.cartItems.every((item) => item.shipping === true) ||
+        state.cartTotal + state.tax >= 50000;
 
-      if (freeShipping === true || state.cartTotal + state.tax >= 50000) {
+      if (freeShipping) {
         state.shipping = 0;
         state.orderTotal = state.cartTotal + state.tax;
       } else {

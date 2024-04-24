@@ -45,6 +45,13 @@ const SingleProduct = () => {
   const addToCart = () => {
     dispatch(addItem({ product: cartProduct }));
   };
+  const [isButtonClicked, setIsButtonClicked] = useState(false);
+  const handleClick = () => {
+    setIsButtonClicked(true);
+    setTimeout(() => {
+      setIsButtonClicked(false);
+    }, 500);
+  };
 
   return (
     <section>
@@ -123,7 +130,9 @@ const SingleProduct = () => {
             </label> */}
             <select
               id='amount'
-              className='select select-secondary  w-[100%] '
+              className={`select select-secondary  w-[100%] ${
+                amount < 1 && isButtonClicked && 'animate-custom-shake'
+              }`}
               onChange={handleAmount}
               defaultValue=''
             >
@@ -136,8 +145,10 @@ const SingleProduct = () => {
           {/* CART BTN */}
           <div className='mt-10'>
             <button
-              className='btn btn-secondary btn-md btn-block uppercase'
-              onClick={addToCart}
+              className={`btn btn-secondary btn-md btn-block uppercase ${
+                amount < 1 && 'cursor-not-allowed'
+              }`}
+              onClick={amount >= 1 ? addToCart : handleClick}
             >
               add to cart
             </button>
