@@ -9,7 +9,7 @@ const links = [
   { id: 6, url: 'orders', text: 'orders' },
 ];
 const NavLinks = () => {
-  const user = useSelector((state) => state.userState.user);
+  const user = useSelector((state) => state?.userState?.user);
 
   return (
     <>
