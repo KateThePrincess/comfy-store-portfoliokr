@@ -17,6 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       pauseOnFocusLoss
       draggable
       pauseOnHover
+      closeButton={false}
     />
     <App />
   </Provider>

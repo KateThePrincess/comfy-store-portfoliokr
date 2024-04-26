@@ -48,6 +48,11 @@ const Register = () => {
           </Link>
         </p>
       </Form>
+      <Link to='/' className=' w-[80%] md:w-96 px-8'>
+        <button className='btn btn-base-200 btn-block uppercase'>
+          Back to home
+        </button>
+      </Link>
     </section>
   );
 };

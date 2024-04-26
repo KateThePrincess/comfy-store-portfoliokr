@@ -38,3 +38,18 @@ li::before {
 .animate-custom-shake {
   animation: custom-shake 300ms ease-in-out;
 }
+
+:root {
+  --icon: #f77198;
+  --toastify-icon-color-info: var(--icon);
+  --toastify-icon-color-success: var(--icon);
+  --toastify-icon-color-warning: var(--icon);
+  --toastify-icon-color-error: var(--icon);
+  --toastify-text-color-light: #24285c;
+}
+
+.Toastify__toast {
+  background: rgba(255, 255, 255, 0.765);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+}

@@ -20,8 +20,8 @@ const PaginationContainer = () => {
   if (pageCount < 2) return null;
 
   return (
-    <div className='mt-16 flex justify-center px-8'>
-      <div className='join'>
+    <div className='mt-16 flex justify-center overflow-hidden'>
+      <div className='join overflow-x-auto'>
         <button
           className='btn btn-sm sm:btn-md join-item btn-neutral'
           onClick={() => {
@@ -32,19 +32,21 @@ const PaginationContainer = () => {
         >
           <FaChevronLeft />
         </button>
-        {pages.map((pageNumber) => {
-          return (
-            <button
-              key={pageNumber}
-              onClick={() => handlePageChange(pageNumber)}
-              className={`btn btn-sm sm:btn-md btn-neutral border-none join-item ${
-                pageNumber === page ? 'bg-secondary' : ''
-              }`}
-            >
-              {pageNumber}
-            </button>
-          );
-        })}
+        <div className='join overflow-x-auto rounded-none'>
+          {pages.map((pageNumber) => {
+            return (
+              <button
+                key={pageNumber}
+                onClick={() => handlePageChange(pageNumber)}
+                className={`btn btn-sm sm:btn-md btn-neutral border-none join-item ${
+                  pageNumber === page ? 'bg-secondary' : ''
+                }`}
+              >
+                {pageNumber}
+              </button>
+            );
+          })}
+        </div>
         <button
           className='btn btn-sm sm:btn-md join-item btn-neutral'
           onClick={() => {

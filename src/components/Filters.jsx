@@ -10,9 +10,7 @@ const Filters = () => {
 
   return (
     <>
-      <h4 className='font-bold text-4xl text-neutral px-8 py-4 bg-base-200 mb-4 rounded-xl'>
-        Find product
-      </h4>
+      <h4 className='font-bold text-4xl px-8 py-4  mb-4 '>Find product</h4>
       <Form className='bg-base-200 rounded-xl px-8 py-4 grid gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center'>
         {/* SEARCH */}
         <FormInput

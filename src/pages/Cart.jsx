@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { CartItemsList, CartTotals, SectionTitle } from '../components';
 import { Link } from 'react-router-dom';
-import { customFetch } from '../utils';
 
 // const url = '/products?search=&shipping=on';
 // export const loader = async () => {
@@ -19,14 +18,14 @@ const Cart = () => {
     return (
       <SectionTitle
         text='Your cart is currently empty.'
-        bg='bg-base-200 p-4 rounded-xl'
+        bg={'bg-base-200 p-5 rounded-xl text-center'}
       />
     );
   }
 
   return (
     <>
-      <SectionTitle text='Shopping Cart' bg='bg-base-200 p-4 rounded-xl' />
+      <SectionTitle text='Shopping Cart' bg='p-4 text-neutral' />
       <div className='mt-8 grid gap-8 lg:grid-cols-12'>
         <div className='lg:col-span-8'>{<CartItemsList />}</div>
         <div className='lg:col-span-4'>

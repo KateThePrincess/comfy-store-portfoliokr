@@ -37,7 +37,7 @@ const Login = () => {
         password: 'secret',
       });
       dispatch(loginUser(response.data));
-      toast.success('Hi there, guest user!');
+      toast.success('Hi there, Demo User!');
       navigate('/');
     } catch (error) {
       toast.error('Something went wrong...');
@@ -75,6 +75,11 @@ const Login = () => {
           </Link>
         </p>
       </Form>
+      <Link to='/' className=' w-[80%] md:w-96 px-8'>
+        <button className='btn btn-base-200 btn-block uppercase'>
+          Back to home
+        </button>
+      </Link>
     </section>
   );
 };
